@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Bruno DO ROSARIO INACIO - BTS SIO SISR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b0b0b;
+            --second-bg: #151515;
+            --accent-color: #007bff;
+            --accent-glow: rgba(0, 123, 255, 0.5);
+            --text-color: #ffffff;
+            --text-muted: #a0a0a0;
+
+            /* Arrondis demandés */
+            --radius-nav: 12px;
+            --radius-card: 24px;
+            --radius-btn: 50px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif, system-ui;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Mise en page */
+        .section {
+            padding: 100px 10%;
+        }
+
+        .bg-dark-2 {
+            background: var(--second-bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: var(--accent-color);
+            font-weight: 800;
+        }
+
+        .section-title span {
+            color: var(--text-color);
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* --- NAVIGATION STYLE FANCRAFT --- */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            padding: 15px 0;
+            background: rgba(11, 11, 11, 0.9);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            width: 85%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-logo i {
+            margin-right: 10px;
+            color: var(--accent-color);
+            filter: drop-shadow(0 0 5px var(--accent-color));
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 10px 18px;
+            border-radius: var(--radius-nav);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: block;
+        }
+
+        .nav-menu a:hover {
+            background-color: var(--accent-color);
+            color: white;
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+            opacity: 0;
+        }
+
+        .nav-menu a:hover::after {
+            width: 30%;
+            opacity: 1;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(0, 123, 255, 0.05) 0%, transparent 70%);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent-color);
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .hero-content h3 {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-top: 20px;
+            font-weight: 400;
+        }
+
+        .hero-social-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .social-icon {
+            font-size: 3.5rem;
+            color: white;
+            transition: 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-10px);
+            filter: drop-shadow(0 0 10px var(--accent-color));
+        }
+
+        .social-icon.github:hover {
+            color: #6e5494;
+        }
+
+        .social-icon.linkedin:hover {
+            color: #0077b5;
+        }
+
+        .social-icon.tryhackme:hover {
+            color: #cc0000;
+        }
+
+        /* --- BOUTONS --- */
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 30px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: var(--radius-btn);
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+            box-shadow: 0 0 25px var(--accent-glow);
+            transform: scale(1.05);
+        }
+
+        /* --- CARTES ET GRILLES --- */
+        .info-card,
+        .skill-box,
+        .project-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: var(--radius-card);
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .info-card {
+            border-left: 6px solid var(--accent-color);
+        }
+
+        .info-card:hover,
+        .skill-box:hover,
+        .project-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            background: var(--accent-color);
+            padding: 5px 15px;
+            border-radius: var(--radius-btn);
+            font-size: 0.8rem;
+            font-weight: 800;
+        }
+
+        .location {
+            color: var(--accent-color);
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .mission-list {
+            margin-top: 15px;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .mission-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Systèmes de Grille */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-box i {
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 5px var(--accent-glow));
+        }
+
+        .skill-box ul {
+            list-style: none;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .project-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 800;
+            transition: 0.3s;
+        }
+
+        /* Formulaire de Contact */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 15px;
+            color: white;
+            border-radius: var(--radius-nav);
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+
+            .contact-wrapper,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <i class="fab fa-linux"></i> PORTFOLIO.
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#formation">Formation</a></li>
+                <li><a href="#stages">Stages</a></li>
+                <li><a href="#veille">Veille</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>BRUNO <span>DO ROSARIO INACIO</span></h1>
+            <h3>Étudiant en <strong>BTS SIO</strong> option <strong>SISR</strong> (Solutions d'Infrastructures Systèmes
+                et Réseaux)</h3>
+            <div class="hero-social-links">
+                <a href="https://github.com/Apoo-alt" target="_blank" class="social-icon github" title="Mon GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/brunodorosario" target="_blank" class="social-icon linkedin"
+                    title="Mon LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+                <a href="https://tryhackme.com/p/Apooo" target="_blank" class="social-icon tryhackme"
+                    title="Mon profil TryHackMe">
+                    <i class="fas fa-shield-alt"></i>
+                </a>
+            </div>
+            <a href="#about"><button class="btn-primary">En savoir plus</button></a>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <h2 class="section-title">À propos de <span>moi</span></h2>
+        <div class="content-container" style="text-align: center;">
+            <p style="font-size: 1.1rem; opacity: 0.9;">Passionné par les infrastructures réseaux et la cybersécurité,
+                je prépare mon BTS SIO option SISR. Mon
+                objectif est de devenir Administrateur Systèmes et Réseaux.</p>
+
+            <a href="CV_Bruno_Inacio.pdf" class="btn-primary" target="_blank">Mon CV</a>
+        </div>
+    </section>
+
+    <section id="skills" class="section bg-dark-2">
+        <h2 class="section-title">Compétences <span>Techniques</span></h2>
+        <div class="skills-grid">
+            <div class="skill-box">
+                <i class="fas fa-network-wired"></i>
+                <h3>Réseaux</h3>
+                <ul>
+                    <li>Cisco (VLAN, Routage)</li>
+                    <li>Services (DNS, DHCP)</li>
+                    <li>Modèle OSI & IP</li>
+                </ul>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-server"></i>
+                <h3>Systèmes</h3>
+                <ul>
+                    <li>Windows Server (AD, GPO, Partage)</li>
+                    <li>Linux (Debian, Ubuntu, Kali)</li>
+                    <li>Virtualisation (Xcp-ng)</li>
+                </ul>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Cybersécurité</h3>
+                <ul>
+                    <li>Firewalls (PfSense, Stormshield)</li>
+                    <li>Supervision (Wazuh, Grafana)</li>
+                </ul>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-code"></i>
+                <h3>Scripting & Programmation</h3>
+                <ul>
+                    <li>PowerShell (Automatisation)</li>
+                    <li>Bash (Scripts Linux)</li>
+                    <li>Python & C</li>
+                    <li>HTML, CSS, JavaScript</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="formation" class="section">
+        <h2 class="section-title">Mes <span>Formations</span></h2>
+        <div class="content-container">
+            <div class="info-card">
+                <div class="card-header">
+                    <h3>BTS SIO Option SISR</h3>
+                    <span class="date">2024 - 2026</span>
+                </div>
+                <p class="location">Lycée Louis Armand</p>
+                <p>Compétences en solutions d'infrastructure, systèmes et réseaux, cybersécurité et administration
+                    système.</p>
+            </div>
+            <div class="info-card">
+                <div class="card-header">
+                    <h3>Mention Complémentaire Cybersécurité</h3>
+                    <span class="date">2023 - 2024</span>
+                </div>
+                <p class="location">Lycée Louis Armand</p>
+                <p>Spécialisation dans les enjeux de la cybersécurité offensive et défensive.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="stages" class="section bg-dark-2">
+        <h2 class="section-title">Mes <span>Stages</span></h2>
+        <div class="content-container">
+            <div class="info-card">
+                <div class="card-header">
+                    <h3>Technicien Informatique</h3>
+                    <span class="date">Décembre 2025</span>
+                </div>
+                <p class="location">Espace19 Numérique</p>
+                <ul class="mission-list">
+                    <li>Script PowerShell pour l'automatisation de maintenance</li>
+                    <li>Support Microsoft 365 (site et distance)</li>
+                    <li>Configuration de postes et périphériques</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <div class="card-header">
+                    <h3>Technicien Système</h3>
+                    <span class="date">Juin 2025</span>
+                </div>
+                <p class="location">CyberV</p>
+                <ul class="mission-list">
+                    <li>Mise en place Active Directory (GPO, Groupes, Utilisateurs)</li>
+                    <li>Scripts Bash pour la sécurisation de serveurs Linux (Hardening)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOUVELLE SECTION VEILLE TECHNOLOGIQUE -->
+    <section id="veille" class="section">
+        <h2 class="section-title">Veille <span>Technologique</span></h2>
+        <div class="content-container">
+            <div class="info-card">
+                <div class="card-header">
+                    <h3>Cyberattaques et Intelligence Artificielle</h3>
+                    <span class="date">Sujet d'étude</span>
+                </div>
+                <p class="location">Thématique : L'IA comme vecteur et défense</p>
+                <p>Analyse de la transformation du paysage des menaces informatiques par l'IA générative et les
+                    algorithmes prédictifs.</p>
+                <ul class="mission-list">
+                    <li><strong>Phishing 2.0 :</strong> Utilisation de LLM (Large Language Models) pour générer des
+                        emails d'hameçonnage parfaits, sans fautes et hautement personnalisés à grande échelle.</li>
+                    <li><strong>Deepfakes & Ingénierie Sociale :</strong> Usurpation d'identité vocale ou faciale par IA
+                        pour tromper les employés lors de procédures de vérification (ex: fraude au président).</li>
+                    <li><strong>Malwares Polymorphes :</strong> Utilisation de l'IA pour réécrire dynamiquement le code
+                        des virus afin de contourner les détections par signature des antivirus.</li>
+                    <li><strong>Supervision Défensive :</strong> Mise en place de SIEM dopés à l'IA pour détecter des
+                        comportements anormaux (Zero-day) qu'un humain ne pourrait identifier en temps réel.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section bg-dark-2">
+        <h2 class="section-title">Projets <span>Réalisés</span></h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Installation GLPI</h3>
+                <p>Mise en place d'un outil de ticketing sous Debian 12.</p>
+                <a href="#" class="project-link">Consulter le dossier →</a>
+            </div>
+            <div class="project-card">
+                <h3>Wazuh & PfSense</h3>
+                <p>Interconnexion sécurisée via PfSense sous IPsec.</p>
+                <a href="#" class="project-link">Consulter le dossier →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-wrapper">
+            <div class="contact-text">
+                <h3>Une question ?</h3>
+                <p>N'hésitez pas à m'envoyer un message via ce formulaire.</p>
+            </div>
+            <form id="contact-form" class="contact-form">
+                <input type="text" placeholder="Votre Nom" required>
+                <input type="email" placeholder="Votre Email" required>
+                <input type="text" placeholder="Sujet" required>
+                <textarea rows="5" placeholder="Votre message..." required></textarea>
+                <button type="submit" class="btn-primary">Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>2026 - Bruno DO ROSARIO INACIO | Portfolio BTS SIO SISR</p>
+    </footer>
+
+    <script>
+        console.log("Portfolio SISR chargé avec succès !");
+
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('button');
+            const originalText = submitBtn.innerText;
+
+            submitBtn.innerText = "Envoi...";
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                const msg = document.createElement('div');
+                msg.textContent = "Merci Bruno ! Votre message a bien été envoyé.";
+                msg.style.cssText = "position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#007bff; color:white; padding:15px 30px; border-radius:30px; z-index:2000; box-shadow:0 5px 15px rgba(0,0,0,0.3);";
+                document.body.appendChild(msg);
+
+                this.reset();
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+
+                setTimeout(() => msg.remove(), 4000);
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
