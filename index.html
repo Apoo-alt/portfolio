@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Bruno DO ROSARIO INACIO - BTS SIO SISR</title>
+    <!-- Import des icônes FontAwesome et de la police Inter -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #0b0b0b;
@@ -16,15 +18,17 @@
             --text-muted: #a0a0a0;
 
             --radius-nav: 12px;
-            --radius-card: 20px;
+            --radius-card: 24px;
             --radius-btn: 50px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* --- RESET & BASES --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif, system-ui;
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -98,7 +102,7 @@
             font-size: 1.05rem;
             padding: 12px 22px;
             border-radius: var(--radius-nav);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--transition);
             position: relative;
         }
 
@@ -126,7 +130,7 @@
             width: 30%;
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         .hero-section {
             height: 100vh;
             display: flex;
@@ -161,27 +165,16 @@
         .social-icon {
             font-size: 3.5rem;
             color: white;
-            transition: 0.3s ease;
+            transition: var(--transition);
             text-decoration: none;
         }
 
         .social-icon:hover {
             transform: translateY(-10px);
+            color: var(--accent-color);
         }
 
-        .social-icon.github:hover {
-            color: #6e5494;
-        }
-
-        .social-icon.linkedin:hover {
-            color: #0077b5;
-        }
-
-        .social-icon.tryhackme:hover {
-            color: #cc0000;
-        }
-
-        /* --- DESIGN DES CARTES --- */
+        /* --- DESIGN DES CARTES (STYLE IMAGE EXACT) --- */
         .content-container {
             max-width: 900px;
             margin: 0 auto;
@@ -191,12 +184,18 @@
         }
 
         .info-card {
-            background: #1a1a1a;
+            background: #121212;
+            /* Fond sombre conforme à l'image */
             padding: 35px;
             border-radius: var(--radius-card);
             border-left: 5px solid var(--accent-color);
+            /* Trait bleu à gauche */
             position: relative;
-            transition: 0.3s;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+            /* Uniformisation de la taille */
         }
 
         .info-card:hover {
@@ -233,6 +232,7 @@
 
         .location {
             color: var(--accent-color);
+            /* Bleu pour le nom de l'entreprise */
             font-weight: 800;
             margin-bottom: 15px;
             text-transform: uppercase;
@@ -243,16 +243,33 @@
         .mission-list {
             margin-top: 15px;
             padding-left: 20px;
-            color: var(--text-muted);
+            color: #d1d1d1;
+            /* Gris clair pour les missions */
             list-style-type: disc;
+            flex-grow: 1;
         }
 
         .mission-list li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 0.95rem;
         }
 
-        /* --- SKILLS --- */
+        /* Lien PDF en bas de carte conforme à l'image */
+        .pdf-link-trigger {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pdf-link-trigger i {
+            font-size: 1.2rem;
+        }
+
+        /* --- COMPÉTENCES --- */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -264,7 +281,7 @@
             padding: 30px;
             border-radius: var(--radius-card);
             border: 1px solid #333;
-            transition: 0.3s;
+            transition: var(--transition);
         }
 
         .skill-box:hover {
@@ -283,7 +300,48 @@
             color: var(--text-muted);
         }
 
-        /* --- CONTACT FORM --- */
+        /* --- BOUTONS --- */
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 30px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: var(--radius-btn);
+            font-weight: 800;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: scale(1.05);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            border-radius: var(--radius-btn);
+            font-weight: 800;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-color);
+            color: white;
+            box-shadow: 0 0 15px var(--accent-glow);
+            transform: translateY(-3px);
+        }
+
+        /* --- CONTACT --- */
         .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -302,12 +360,6 @@
             gap: 8px;
         }
 
-        .form-group label {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
         .contact-form input,
         .contact-form textarea {
             background: #1a1a1a;
@@ -316,7 +368,7 @@
             color: white;
             border-radius: 8px;
             outline: none;
-            transition: 0.3s;
+            transition: var(--transition);
         }
 
         .contact-form input:focus,
@@ -332,28 +384,11 @@
             font-weight: 800;
             border: none;
             cursor: pointer;
-            transition: 0.3s;
+            transition: var(--transition);
             text-transform: uppercase;
-            margin-top: 10px;
         }
 
-        .contact-form button:hover {
-            background: #0056b3;
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        .btn-primary {
-            display: inline-block;
-            padding: 14px 30px;
-            background: var(--accent-color);
-            color: white;
-            border-radius: var(--radius-btn);
-            font-weight: 800;
-            text-decoration: none;
-            margin-top: 30px;
-        }
-
-        /* --- MODALE POUR LE PDF --- */
+        /* --- MODALE PDF --- */
         .modal {
             display: none;
             position: fixed;
@@ -370,7 +405,6 @@
             position: relative;
             background-color: #1a1a1a;
             margin: 2% auto;
-            padding: 0;
             width: 85%;
             height: 90%;
             border-radius: 15px;
@@ -388,12 +422,6 @@
             font-weight: bold;
             cursor: pointer;
             z-index: 2001;
-            transition: 0.3s;
-        }
-
-        .close-modal:hover {
-            color: var(--accent-color);
-            transform: scale(1.2);
         }
 
         .modal-iframe {
@@ -423,12 +451,21 @@
                 height: 80%;
                 margin: 10% auto;
             }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .info-card {
+                min-height: auto;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- NAVIGATION -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
@@ -446,32 +483,35 @@
         </div>
     </nav>
 
+    <!-- HERO SECTION -->
     <header id="home" class="hero-section">
         <div class="hero-content">
             <h1>BRUNO <span>DO ROSARIO INACIO</span></h1>
             <h3>Étudiant en <strong>BTS SIO</strong> option <strong>SISR</strong></h3>
             <div class="hero-social-links">
-                <a href="https://github.com/Apoo-alt" target="_blank" class="social-icon github"><i
+                <a href="https://github.com/Apoo-alt" target="_blank" class="social-icon"><i
                         class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/brunodorosario" target="_blank" class="social-icon linkedin"><i
+                <a href="https://www.linkedin.com/in/brunodorosario" target="_blank" class="social-icon"><i
                         class="fab fa-linkedin"></i></a>
-                <a href="https://tryhackme.com/p/Apooo" target="_blank" class="social-icon tryhackme"><i
+                <a href="https://tryhackme.com/p/Apooo" target="_blank" class="social-icon"><i
                         class="fas fa-shield-alt"></i></a>
             </div>
         </div>
     </header>
 
+    <!-- À PROPOS -->
     <section id="about" class="section">
         <h2 class="section-title">À propos de moi</h2>
         <div class="content-container" style="text-align: center;">
-            <p style="font-size: 1.1rem;">Passionné par les infrastructures réseaux et la cybersécurité, je prépare mon
-                BTS SIO option SISR au Lycée Louis Armand. Mon objectif est de devenir Administrateur Systèmes et
-                Réseaux.</p>
+            <p style="font-size: 1.1rem; margin-bottom: 30px;">Passionné par les infrastructures réseaux et la
+                cybersécurité, je prépare mon BTS SIO option SISR au Lycée Louis Armand. Mon objectif est de devenir
+                Administrateur Systèmes et Réseaux.</p>
             <a href="Bruno_DO_ROSARIO_INACIO_FlowCV_Resume_2026-03-09.pdf" class="btn-primary" target="_blank">MON
                 CV</a>
         </div>
     </section>
 
+    <!-- COMPÉTENCES -->
     <section id="skills" class="section bg-dark-2">
         <h2 class="section-title">Compétences Techniques</h2>
         <div class="skills-grid">
@@ -514,6 +554,7 @@
         </div>
     </section>
 
+    <!-- FORMATIONS -->
     <section id="formation" class="section">
         <h2 class="section-title">Mes Formations</h2>
         <div class="content-container">
@@ -544,9 +585,11 @@
         </div>
     </section>
 
+    <!-- STAGES (STYLE IMAGE CONFORME) -->
     <section id="stages" class="section bg-dark-2">
         <h2 class="section-title">Mes Stages</h2>
-        <div class="content-container">
+        <div class="content-container" style="align-items: center;">
+
             <!-- STAGE 1 : ESPACE19 -->
             <div class="info-card" data-pdf="rapport_espace19.pdf">
                 <div class="card-header">
@@ -560,9 +603,11 @@
                     <li>Intervention sur site pour la configuration des postes</li>
                     <li>Configuration des DropBox (partage de fichiers)</li>
                 </ul>
-                <p style="color:var(--accent-color); font-size:1.1rem; font-weight:600; margin-top:15px;"><i
-                        class="fas fa-file-pdf"></i> Cliquez pour voir les missions détaillées</p>
+                <div class="pdf-link-trigger">
+                    <i class="fas fa-file-pdf"></i> Cliquez pour voir les missions détaillées
+                </div>
             </div>
+
             <!-- STAGE 2 : CYBERV -->
             <div class="info-card" data-pdf="rapport_cyberv.pdf">
                 <div class="card-header">
@@ -574,9 +619,11 @@
                     <li>Script bash pour le hardening d'un serveur Linux</li>
                     <li>Mise en place AD (domaine local, GPO, utilisateurs)</li>
                 </ul>
-                <p style="color:var(--accent-color); font-size:1.1rem; font-weight:600; margin-top:15px;"><i
-                        class="fas fa-file-pdf"></i> Cliquez pour voir les missions détaillées</p>
+                <div class="pdf-link-trigger">
+                    <i class="fas fa-file-pdf"></i> Cliquez pour voir les missions détaillées
+                </div>
             </div>
+
             <!-- STAGE 3 : REZOSOCIAL -->
             <div class="info-card" data-pdf="rapport_rezosocial.pdf">
                 <div class="card-header">
@@ -588,12 +635,19 @@
                     <li>Configuration de postes et imprimantes</li>
                     <li>Support Microsoft 365 (site et distance)</li>
                 </ul>
-                <p style="color:var(--accent-color); font-size:1.1rem; font-weight:600; margin-top:15px;"><i
-                        class="fas fa-file-pdf"></i> Cliquez pour voir les missions détaillées</p>
+                <div class="pdf-link-trigger">
+                    <i class="fas fa-file-pdf"></i> Cliquez pour voir les missions détaillées
+                </div>
             </div>
+
+            <!-- BOUTON GRILLE DE COMPÉTENCES APRÈS LES STAGES -->
+            <a href="#" class="btn-outline" onclick="openGrille(); return false;">
+                <i class="fas fa-table"></i> Ma Grille de Compétences
+            </a>
         </div>
     </section>
 
+    <!-- VEILLE -->
     <section id="veille" class="section">
         <h2 class="section-title">Veille Technologique</h2>
         <div class="content-container">
@@ -605,13 +659,14 @@
                 <span class="location">Sujet de Veille</span>
                 <p>Analyse de la transformation du paysage des menaces informatiques par l'IA générative.</p>
                 <ul class="mission-list">
-                    <li>Génération de code malveillant polymorphe</li>
-                    <li>Phishing automatisé et personnalisé</li>
+                    <li>Génération de code malveillant polymorphe via l'IA</li>
+                    <li>Phishing automatisé et personnalisé via LLM</li>
                 </ul>
             </div>
         </div>
     </section>
 
+    <!-- PROJETS -->
     <section id="projects" class="section bg-dark-2">
         <h2 class="section-title">Projets Réalisés</h2>
         <div class="skills-grid">
@@ -619,19 +674,20 @@
                 <h3>Installation GLPI</h3>
                 <p>Gestion de parc informatique sous Debian 12.</p>
                 <a href="#"
-                    style="color: var(--accent-color); text-decoration: none; display: block; margin-top: 15px;">Dossier
-                    →</a>
+                    style="color: var(--accent-color); text-decoration: none; display: block; margin-top: 15px; font-weight: 700;">Dossier
+                    Technique →</a>
             </div>
             <div class="skill-box">
                 <h3>Supervision SIEM</h3>
                 <p>Wazuh et PfSense sous IPsec.</p>
                 <a href="#"
-                    style="color: var(--accent-color); text-decoration: none; display: block; margin-top: 15px;">Dossier
-                    →</a>
+                    style="color: var(--accent-color); text-decoration: none; display: block; margin-top: 15px; font-weight: 700;">Dossier
+                    Technique →</a>
             </div>
         </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="section">
         <h2 class="section-title">Contact</h2>
         <div class="contact-wrapper">
@@ -639,32 +695,27 @@
                 <h3>Une question ?</h3>
                 <p>N'hésitez pas à m'envoyer un message via ce formulaire.</p>
             </div>
-
             <form action="https://formspree.io/f/mdawzdnj" method="POST" class="contact-form">
                 <div class="form-group">
                     <label for="full-name">Nom complet</label>
                     <input type="text" name="name" id="full-name" placeholder="Prénom et Nom" required>
                 </div>
-
                 <div class="form-group">
                     <label for="email-address">Adresse e-mail</label>
                     <input type="email" name="_replyto" id="email-address" placeholder="votre@email.com" required>
                 </div>
-
                 <div class="form-group">
                     <label for="message">Votre message</label>
                     <textarea rows="5" name="message" id="message" placeholder="Bonjour Bruno, je vous contacte pour..."
                         required></textarea>
                 </div>
-
                 <input type="hidden" name="_subject" value="Nouveau message depuis le Portfolio !">
-
-                <button type="submit">Envoyer le message</button>
+                <button type="submit" class="btn-primary">Envoyer le message</button>
             </form>
         </div>
     </section>
 
-    <!-- STRUCTURE DE LA POP-UP (MODALE) -->
+    <!-- STRUCTURE MODALE PDF -->
     <div id="pdfModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -677,33 +728,35 @@
     </footer>
 
     <script>
-        console.log("Portfolio SISR chargé avec succès !");
-
-        // --- GESTION DE LA MODALE PDF ---
         const modal = document.getElementById("pdfModal");
         const pdfViewer = document.getElementById("pdfViewer");
         const closeModal = document.querySelector(".close-modal");
 
-        // On écoute le clic sur chaque carte de stage
+        // GESTION DES RAPPORTS DE STAGE
         document.querySelectorAll('#stages .info-card').forEach(card => {
             card.addEventListener('click', function () {
                 const pdfPath = this.getAttribute('data-pdf');
                 if (pdfPath) {
                     pdfViewer.src = pdfPath;
                     modal.style.display = "block";
-                    document.body.style.overflow = "hidden"; // Empêche le scroll derrière
+                    document.body.style.overflow = "hidden";
                 }
             });
         });
 
-        // Fermer la modale
+        // GESTION DE LA GRILLE DE COMPÉTENCES
+        function openGrille() {
+            pdfViewer.src = "grille_competences.pdf";
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
         closeModal.onclick = function () {
             modal.style.display = "none";
-            pdfViewer.src = ""; // Vide l'iframe pour stopper le chargement
+            pdfViewer.src = "";
             document.body.style.overflow = "auto";
         }
 
-        // Fermer si on clique à côté de la fenêtre
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -711,6 +764,8 @@
                 document.body.style.overflow = "auto";
             }
         }
+
+        console.log("Portfolio SISR chargé avec succès !");
     </script>
 </body>
 
