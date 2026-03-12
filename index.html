@@ -18,12 +18,12 @@
             --text-muted: #a0a0a0;
 
             --radius-nav: 12px;
-            --radius-card: 24px;
+            --radius-card: 20px;
             --radius-btn: 50px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* --- RESET & BASES --- */
+        /* --- RÉINITIALISATION --- */
         * {
             margin: 0;
             padding: 0;
@@ -130,7 +130,7 @@
             width: 30%;
         }
 
-        /* --- HERO --- */
+        /* --- HERO SECTION --- */
         .hero-section {
             height: 100vh;
             display: flex;
@@ -174,7 +174,7 @@
             color: var(--accent-color);
         }
 
-        /* --- DESIGN DES CARTES (STYLE IMAGE EXACT) --- */
+        /* --- DESIGN DES CARTES (IMAGE 03369e & 03327c) --- */
         .content-container {
             max-width: 900px;
             margin: 0 auto;
@@ -185,17 +185,13 @@
 
         .info-card {
             background: #121212;
-            /* Fond sombre conforme à l'image */
             padding: 35px;
             border-radius: var(--radius-card);
             border-left: 5px solid var(--accent-color);
-            /* Trait bleu à gauche */
             position: relative;
             transition: var(--transition);
             display: flex;
             flex-direction: column;
-            min-height: 400px;
-            /* Uniformisation de la taille */
         }
 
         .info-card:hover {
@@ -232,7 +228,6 @@
 
         .location {
             color: var(--accent-color);
-            /* Bleu pour le nom de l'entreprise */
             font-weight: 800;
             margin-bottom: 15px;
             text-transform: uppercase;
@@ -244,9 +239,7 @@
             margin-top: 15px;
             padding-left: 20px;
             color: #d1d1d1;
-            /* Gris clair pour les missions */
             list-style-type: disc;
-            flex-grow: 1;
         }
 
         .mission-list li {
@@ -254,7 +247,6 @@
             font-size: 0.95rem;
         }
 
-        /* Lien PDF en bas de carte conforme à l'image */
         .pdf-link-trigger {
             color: var(--accent-color);
             font-size: 1.1rem;
@@ -265,8 +257,24 @@
             gap: 10px;
         }
 
-        .pdf-link-trigger i {
-            font-size: 1.2rem;
+        /* --- BOUTONS --- */
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 30px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: var(--radius-btn);
+            font-weight: 800;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: scale(1.05);
         }
 
         /* --- COMPÉTENCES --- */
@@ -298,47 +306,6 @@
         .skill-box ul {
             list-style: none;
             color: var(--text-muted);
-        }
-
-        /* --- BOUTONS --- */
-        .btn-primary {
-            display: inline-block;
-            padding: 14px 30px;
-            background: var(--accent-color);
-            color: white;
-            border-radius: var(--radius-btn);
-            font-weight: 800;
-            text-decoration: none;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            background: #0056b3;
-            box-shadow: 0 0 20px var(--accent-glow);
-            transform: scale(1.05);
-        }
-
-        .btn-outline {
-            display: inline-block;
-            padding: 12px 30px;
-            background: transparent;
-            color: var(--accent-color);
-            border: 2px solid var(--accent-color);
-            border-radius: var(--radius-btn);
-            font-weight: 800;
-            text-decoration: none;
-            margin-top: 30px;
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .btn-outline:hover {
-            background: var(--accent-color);
-            color: white;
-            box-shadow: 0 0 15px var(--accent-glow);
-            transform: translateY(-3px);
         }
 
         /* --- CONTACT --- */
@@ -455,17 +422,13 @@
             .hero-content h1 {
                 font-size: 3rem;
             }
-
-            .info-card {
-                min-height: auto;
-            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- BARRE DE NAVIGATION -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
@@ -483,7 +446,7 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- SECTION ACCUEIL -->
     <header id="home" class="hero-section">
         <div class="hero-content">
             <h1>BRUNO <span>DO ROSARIO INACIO</span></h1>
@@ -499,7 +462,7 @@
         </div>
     </header>
 
-    <!-- À PROPOS -->
+    <!-- SECTION À PROPOS -->
     <section id="about" class="section">
         <h2 class="section-title">À propos de moi</h2>
         <div class="content-container" style="text-align: center;">
@@ -511,7 +474,7 @@
         </div>
     </section>
 
-    <!-- COMPÉTENCES -->
+    <!-- SECTION COMPÉTENCES -->
     <section id="skills" class="section bg-dark-2">
         <h2 class="section-title">Compétences Techniques</h2>
         <div class="skills-grid">
@@ -554,7 +517,7 @@
         </div>
     </section>
 
-    <!-- FORMATIONS -->
+    <!-- SECTION FORMATION -->
     <section id="formation" class="section">
         <h2 class="section-title">Mes Formations</h2>
         <div class="content-container">
@@ -585,11 +548,10 @@
         </div>
     </section>
 
-    <!-- STAGES (STYLE IMAGE CONFORME) -->
+    <!-- SECTION STAGES -->
     <section id="stages" class="section bg-dark-2">
         <h2 class="section-title">Mes Stages</h2>
-        <div class="content-container" style="align-items: center;">
-
+        <div class="content-container">
             <!-- STAGE 1 : ESPACE19 -->
             <div class="info-card" data-pdf="rapport_espace19.pdf">
                 <div class="card-header">
@@ -640,14 +602,14 @@
                 </div>
             </div>
 
-            <!-- BOUTON GRILLE DE COMPÉTENCES APRÈS LES STAGES -->
-            <a href="#" class="btn-outline" onclick="openGrille(); return false;">
-                <i class="fas fa-table"></i> Ma Grille de Compétences
-            </a>
+            <!-- BOUTON GRILLE DE COMPÉTENCES -->
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="grille_competences.pdf" class="btn-primary" target="_blank">MA GRILLE DE COMPÉTENCES</a>
+            </div>
         </div>
     </section>
 
-    <!-- VEILLE -->
+    <!-- SECTION VEILLE -->
     <section id="veille" class="section">
         <h2 class="section-title">Veille Technologique</h2>
         <div class="content-container">
@@ -666,7 +628,7 @@
         </div>
     </section>
 
-    <!-- PROJETS -->
+    <!-- SECTION PROJETS -->
     <section id="projects" class="section bg-dark-2">
         <h2 class="section-title">Projets Réalisés</h2>
         <div class="skills-grid">
@@ -687,7 +649,7 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- SECTION CONTACT -->
     <section id="contact" class="section">
         <h2 class="section-title">Contact</h2>
         <div class="contact-wrapper">
@@ -728,11 +690,11 @@
     </footer>
 
     <script>
+        // GESTION DES RAPPORTS DE STAGE
         const modal = document.getElementById("pdfModal");
         const pdfViewer = document.getElementById("pdfViewer");
         const closeModal = document.querySelector(".close-modal");
 
-        // GESTION DES RAPPORTS DE STAGE
         document.querySelectorAll('#stages .info-card').forEach(card => {
             card.addEventListener('click', function () {
                 const pdfPath = this.getAttribute('data-pdf');
@@ -743,13 +705,6 @@
                 }
             });
         });
-
-        // GESTION DE LA GRILLE DE COMPÉTENCES
-        function openGrille() {
-            pdfViewer.src = "grille_competences.pdf";
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden";
-        }
 
         closeModal.onclick = function () {
             modal.style.display = "none";
@@ -765,7 +720,7 @@
             }
         }
 
-        console.log("Portfolio SISR chargé avec succès !");
+        console.log("Portfolio SISR restauré avec succès !");
     </script>
 </body>
 
