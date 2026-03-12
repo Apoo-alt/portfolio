@@ -15,9 +15,8 @@
             --text-color: #ffffff;
             --text-muted: #a0a0a0;
 
-            /* Arrondis demandés */
             --radius-nav: 12px;
-            --radius-card: 24px;
+            --radius-card: 20px;
             --radius-btn: 50px;
         }
 
@@ -36,7 +35,6 @@
             overflow-x: hidden;
         }
 
-        /* Mise en page */
         .section {
             padding: 100px 10%;
         }
@@ -51,18 +49,6 @@
             text-align: center;
             color: var(--accent-color);
             font-weight: 800;
-        }
-
-        .section-title span {
-            color: var(--text-color);
-        }
-
-        .content-container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
         }
 
         /* --- NAVIGATION STYLE FANCRAFT --- */
@@ -92,23 +78,17 @@
             font-weight: 900;
             color: white;
             text-decoration: none;
-            letter-spacing: 1px;
         }
 
         .nav-logo i {
             margin-right: 10px;
             color: var(--accent-color);
-            filter: drop-shadow(0 0 5px var(--accent-color));
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
             gap: 0.5rem;
-        }
-
-        .nav-menu li {
-            position: relative;
         }
 
         .nav-menu a {
@@ -120,7 +100,6 @@
             border-radius: var(--radius-nav);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            display: block;
         }
 
         .nav-menu a:hover {
@@ -141,12 +120,10 @@
             transition: 0.3s ease;
             transform: translateX(-50%);
             border-radius: 2px;
-            opacity: 0;
         }
 
         .nav-menu a:hover::after {
             width: 30%;
-            opacity: 1;
         }
 
         /* --- HERO SECTION --- */
@@ -156,7 +133,6 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(0, 123, 255, 0.05) 0%, transparent 70%);
         }
 
         .hero-content h1 {
@@ -166,7 +142,6 @@
 
         .hero-content h1 span {
             color: var(--accent-color);
-            text-shadow: 0 0 15px var(--accent-glow);
         }
 
         .hero-content h3 {
@@ -192,7 +167,6 @@
 
         .social-icon:hover {
             transform: translateY(-10px);
-            filter: drop-shadow(0 0 10px var(--accent-color));
         }
 
         .social-icon.github:hover {
@@ -207,48 +181,25 @@
             color: #cc0000;
         }
 
-        /* --- BOUTONS --- */
-        .btn-primary {
-            display: inline-block;
-            padding: 14px 30px;
-            background: var(--accent-color);
-            color: white;
-            border-radius: var(--radius-btn);
-            font-weight: 800;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
-        }
-
-        .btn-primary:hover {
-            background: #0056b3;
-            box-shadow: 0 0 25px var(--accent-glow);
-            transform: scale(1.05);
-        }
-
-        /* --- CARTES ET GRILLES --- */
-        .info-card,
-        .skill-box,
-        .project-card {
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: var(--radius-card);
-            border: 1px solid #333;
-            transition: 0.3s;
+        /* --- DESIGN DES CARTES (STYLE IMAGE) --- */
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
         .info-card {
-            border-left: 6px solid var(--accent-color);
+            background: #1a1a1a;
+            padding: 35px;
+            border-radius: var(--radius-card);
+            border-left: 5px solid var(--accent-color);
+            position: relative;
+            transition: 0.3s;
         }
 
-        .info-card:hover,
-        .skill-box:hover,
-        .project-card:hover {
-            border-color: var(--accent-color);
+        .info-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
@@ -256,77 +207,79 @@
         .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 10px;
+        }
+
+        .card-header h3 {
+            font-size: 1.4rem;
+            color: white;
+            font-weight: 700;
         }
 
         .date {
             background: var(--accent-color);
-            padding: 5px 15px;
-            border-radius: var(--radius-btn);
+            padding: 6px 18px;
+            border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 800;
             color: white;
+            white-space: nowrap;
         }
 
         .location {
             color: var(--accent-color);
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            display: block;
         }
 
         .mission-list {
             margin-top: 15px;
             padding-left: 20px;
             color: var(--text-muted);
+            list-style-type: disc;
         }
 
         .mission-list li {
             margin-bottom: 8px;
+            font-size: 0.95rem;
         }
 
-        /* Systèmes de Grille */
+        /* --- SKILLS --- */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
+        .skill-box {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: var(--radius-card);
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .skill-box:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
         .skill-box i {
             font-size: 2.2rem;
             color: var(--accent-color);
             margin-bottom: 15px;
-            filter: drop-shadow(0 0 5px var(--accent-glow));
         }
 
         .skill-box ul {
             list-style: none;
             color: var(--text-muted);
-            margin-top: 10px;
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .project-link {
-            color: var(--accent-color);
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 800;
-            transition: 0.3s;
-        }
-
-        .project-link:hover {
-            letter-spacing: 1px;
-        }
-
-        /* Formulaire de Contact */
+        /* --- CONTACT FORM --- */
         .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -336,7 +289,19 @@
         .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
         .contact-form input,
@@ -345,7 +310,7 @@
             border: 1px solid #333;
             padding: 15px;
             color: white;
-            border-radius: var(--radius-nav);
+            border-radius: 8px;
             outline: none;
             transition: 0.3s;
         }
@@ -353,13 +318,35 @@
         .contact-form input:focus,
         .contact-form textarea:focus {
             border-color: var(--accent-color);
-            box-shadow: 0 0 10px var(--accent-glow);
         }
 
-        /* Champ Honeypot Anti-Bot (Invisible) */
-        .h-pot {
-            display: none !important;
-            visibility: hidden !important;
+        .contact-form button {
+            padding: 15px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 8px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .contact-form button:hover {
+            background: #0056b3;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 30px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: var(--radius-btn);
+            font-weight: 800;
+            text-decoration: none;
+            margin-top: 30px;
         }
 
         footer {
@@ -367,18 +354,11 @@
             text-align: center;
             border-top: 1px solid #222;
             color: var(--text-muted);
-            font-weight: 500;
         }
 
         @media (max-width: 768px) {
-
-            .contact-wrapper,
-            .projects-grid {
+            .contact-wrapper {
                 grid-template-columns: 1fr;
-            }
-
-            .hero-content h1 {
-                font-size: 3rem;
             }
 
             .nav-menu {
@@ -410,40 +390,31 @@
     <header id="home" class="hero-section">
         <div class="hero-content">
             <h1>BRUNO <span>DO ROSARIO INACIO</span></h1>
-            <h3>Étudiant en <strong>BTS SIO (Services Informatiques aux Organisations</strong> option <strong>SISR</strong> (Solutions d'Infrastructures Systèmes
-                et Réseaux)</h3>
+            <h3>Étudiant en <strong>BTS SIO</strong> option <strong>SISR</strong></h3>
             <div class="hero-social-links">
-                <a href="https://github.com/Apoo-alt" target="_blank" class="social-icon github" title="Mon GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/brunodorosario" target="_blank" class="social-icon linkedin"
-                    title="Mon LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://tryhackme.com/p/Apooo" target="_blank" class="social-icon tryhackme"
-                    title="Mon profil TryHackMe">
-                    <i class="fas fa-shield-alt"></i>
-                </a>
+                <a href="https://github.com/Apoo-alt" target="_blank" class="social-icon github"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/brunodorosario" target="_blank" class="social-icon linkedin"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://tryhackme.com/p/Apooo" target="_blank" class="social-icon tryhackme"><i
+                        class="fas fa-shield-alt"></i></a>
             </div>
-            <a href="#about"><button class="btn-primary">En savoir plus</button></a>
         </div>
     </header>
 
-    <!-- SECTION À PROPOS -->
     <section id="about" class="section">
-        <h2 class="section-title">À propos de <span>moi</span></h2>
+        <h2 class="section-title">À propos de moi</h2>
         <div class="content-container" style="text-align: center;">
-            <p style="font-size: 1.1rem; opacity: 0.9;">Passionné par les infrastructures réseaux et la cybersécurité,
-                je prépare mon BTS SIO option SISR au Lycée Louis Armand. Mon objectif est de devenir Administrateur
-                Systèmes et Réseaux.</p>
+            <p style="font-size: 1.1rem;">Passionné par les infrastructures réseaux et la cybersécurité, je prépare mon
+                BTS SIO option SISR au Lycée Louis Armand. Mon objectif est de devenir Administrateur Systèmes et
+                Réseaux.</p>
             <a href="Bruno_DO_ROSARIO_INACIO_FlowCV_Resume_2026-03-09.pdf" class="btn-primary" target="_blank">MON
                 CV</a>
         </div>
     </section>
 
-    <!-- SECTION COMPÉTENCES -->
     <section id="skills" class="section bg-dark-2">
-        <h2 class="section-title">Compétences <span>Techniques</span></h2>
+        <h2 class="section-title">Compétences Techniques</h2>
         <div class="skills-grid">
             <div class="skill-box">
                 <i class="fas fa-network-wired"></i>
@@ -452,8 +423,6 @@
                     <li>Cisco (VLAN, Routage)</li>
                     <li>Services (DNS, DHCP)</li>
                     <li>Modèle OSI & IP</li>
-                    <li>Addressage IPv4</li>
-                    <li>Initiation à l'IPv6</li>
                 </ul>
             </div>
             <div class="skill-box">
@@ -461,18 +430,17 @@
                 <h3>Systèmes</h3>
                 <ul>
                     <li>Active Directory (GPO, DNS)</li>
-                    <li>Linux (Debian et Ubuntu)</li>
+                    <li>Linux (Debian, Ubuntu, Kali)</li>
                     <li>Virtualisation (Xcp-ng)</li>
                 </ul>
             </div>
             <div class="skill-box">
                 <i class="fas fa-shield-alt"></i>
-                <h3>Cybersécurité</h3>
+                <h3>Sécurité</h3>
                 <ul>
                     <li>Hardening Linux</li>
                     <li>Pare-feux (PfSense)</li>
                     <li>Supervision (Wazuh)</li>
-                    <li>Kalinux</li>
                 </ul>
             </div>
             <div class="skill-box">
@@ -481,22 +449,22 @@
                 <ul>
                     <li>Bash & PowerShell</li>
                     <li>Python & C</li>
-                    <li>HTML / CSS / JS</li>
+                    <li>HTML, CSS, JS</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- SECTION FORMATION -->
+    <!-- SECTION FORMATION (RÉTABLIE STYLE IMAGE) -->
     <section id="formation" class="section">
-        <h2 class="section-title">Mes <span>Formations</span></h2>
+        <h2 class="section-title">Mes Formations</h2>
         <div class="content-container">
             <div class="info-card">
                 <div class="card-header">
                     <h3>BTS SIO Option SISR</h3>
                     <span class="date">2024 - 2026</span>
                 </div>
-                <p class="location">Lycée Louis Armand</p>
+                <span class="location">LYCÉE LOUIS ARMAND</span>
                 <p>Spécialisation en Solutions d'infrastructure, systèmes et réseaux.</p>
             </div>
             <div class="info-card">
@@ -504,7 +472,7 @@
                     <h3>MC Cybersécurité</h3>
                     <span class="date">2023 - 2024</span>
                 </div>
-                <p class="location">Lycée Louis Armand</p>
+                <span class="location">LYCÉE LOUIS ARMAND</span>
                 <p>Certification de spécialisation en Cybersécurité.</p>
             </div>
             <div class="info-card">
@@ -512,25 +480,25 @@
                     <h3>Baccalauréat Général</h3>
                     <span class="date">2020 - 2023</span>
                 </div>
-                <p class="location">Lycée Colbert</p>
+                <span class="location">LYCÉE COLBERT</span>
                 <p>Spécialités Mathématiques et NSI (Numérique et Sciences Informatiques).</p>
             </div>
         </div>
     </section>
 
-    <!-- SECTION STAGES -->
+    <!-- SECTION STAGES (RÉTABLIE STYLE IMAGE) -->
     <section id="stages" class="section bg-dark-2">
-        <h2 class="section-title">Mes <span>Stages</span></h2>
+        <h2 class="section-title">Mes Stages</h2>
         <div class="content-container">
             <div class="info-card">
                 <div class="card-header">
                     <h3>Technicien Informatique</h3>
                     <span class="date">Décembre 2025</span>
                 </div>
-                <p class="location">Espace19 Numérique</p>
+                <span class="location">ESPACE19 NUMÉRIQUE</span>
                 <ul class="mission-list">
                     <li>Configuration de postes pour les clients</li>
-                    <li>Script PowerShell pour l'automisation de la suppression du dossier Téléchargements</li>
+                    <li>Script PowerShell pour l'automatisation de la suppression du dossier Téléchargements</li>
                     <li>Intervention sur site pour la configuration des postes</li>
                     <li>Configuration des DropBox (partage de fichiers)</li>
                 </ul>
@@ -540,19 +508,18 @@
                     <h3>Technicien Système et Réseaux</h3>
                     <span class="date">Juin 2025</span>
                 </div>
-                <p class="location">CyberV</p>
+                <span class="location">CYBERV</span>
                 <ul class="mission-list">
                     <li>Script bash pour le hardening d'un serveur Linux</li>
                     <li>Mise en place AD (domaine local, GPO, utilisateurs)</li>
                 </ul>
             </div>
-            
             <div class="info-card">
                 <div class="card-header">
                     <h3>Technicien HelpDesk</h3>
                     <span class="date">Juin 2024</span>
                 </div>
-                <p class="location">Rézosocial</p>
+                <span class="location">RÉZOSOCIAL</span>
                 <ul class="mission-list">
                     <li>Configuration de postes et imprimantes</li>
                     <li>Support Microsoft 365 (site et distance)</li>
@@ -561,63 +528,73 @@
         </div>
     </section>
 
-    <!-- SECTION VEILLE TECHNOLOGIQUE -->
     <section id="veille" class="section">
-        <h2 class="section-title">Veille <span>Technologique</span></h2>
+        <h2 class="section-title">Veille Technologique</h2>
         <div class="content-container">
             <div class="info-card">
                 <div class="card-header">
                     <h3>IA et Cyberattaques</h3>
-                    <span class="date">2025</span>
+                    <span class="date">En cours</span>
                 </div>
-                <p class="location">Sujet de Veille</p>
-                <p>Étude de l'impact de l'Intelligence Artificielle sur la génération de malwares et le phishing
-                    automatisé.</p>
+                <span class="location">Sujet de Veille</span>
+                <p>Analyse de la transformation du paysage des menaces informatiques par l'IA générative.</p>
                 <ul class="mission-list">
-                    <li>Utilisation des LLM pour créer des e-mails de phishing sans fautes</li>
-                    <li>Génération de code malveillant polymorphe via l'IA</li>
-                    <li>Défense assistée par IA (détection d'anomalies en temps réel)</li>
+                    <li>Génération de code malveillant polymorphe</li>
+                    <li>Phishing automatisé et personnalisé</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- SECTION PROJETS -->
     <section id="projects" class="section bg-dark-2">
-        <h2 class="section-title">Projets <span>Réalisés</span></h2>
-        <div class="projects-grid">
-            <div class="project-card">
+        <h2 class="section-title">Projets Réalisés</h2>
+        <div class="skills-grid">
+            <div class="skill-box">
                 <h3>Installation GLPI</h3>
-                <p>Mise en place d'un outil de ticketing sous Debian 12 pour la gestion de parc informatique.</p>
-                <a href="#" class="project-link">Dossier technique →</a>
+                <p>Gestion de parc informatique sous Debian 12.</p>
+                <a href="#"
+                    style="color: var(--accent-color); text-decoration: none; display: block; margin-top: 15px;">Dossier
+                    →</a>
             </div>
-            <div class="project-card">
+            <div class="skill-box">
                 <h3>Supervision SIEM</h3>
-                <p>Interconnexion Wazuh et PfSense sous IPsec pour la remontée d'alertes de sécurité.</p>
-                <a href="#" class="project-link">Dossier technique →</a>
+                <p>Wazuh et PfSense sous IPsec.</p>
+                <a href="#"
+                    style="color: var(--accent-color); text-decoration: none; display: block; margin-top: 15px;">Dossier
+                    →</a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION CONTACT -->
     <section id="contact" class="section">
         <h2 class="section-title">Contact</h2>
         <div class="contact-wrapper">
             <div class="contact-text">
                 <h3>Une question ?</h3>
-                <p>N'hésitez pas à m'envoyer un message via ce formulaire sécurisé.</p>
+                <p>N'hésitez pas à m'envoyer un message via ce formulaire.</p>
             </div>
 
-            <form id="contact-form" class="contact-form" action="https://formspree.io/f/bruno.dorosario@protonmail.com"
-                method="POST">
-                <input type="text" name="_honey" class="h-pot"> <!-- Anti-bot -->
+            <!-- FORMULAIRE EXACT FORMSPREE DEMANDÉ -->
+            <form action="https://formspree.io/f/mdawzdnj" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="full-name">Nom complet</label>
+                    <input type="text" name="name" id="full-name" placeholder="Prénom et Nom" required>
+                </div>
 
-                <input type="text" name="name" placeholder="Votre Nom" required>
-                <input type="email" name="email" placeholder="Votre Email" required>
-                <input type="text" name="subject" placeholder="Sujet" required>
-                <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
+                <div class="form-group">
+                    <label for="email-address">Adresse e-mail</label>
+                    <input type="email" name="_replyto" id="email-address" placeholder="votre@email.com" required>
+                </div>
 
-                <button type="submit" class="btn-primary">Envoyer le message</button>
+                <div class="form-group">
+                    <label for="message">Votre message</label>
+                    <textarea rows="5" name="message" id="message" placeholder="Bonjour Bruno, je vous contacte pour..."
+                        required></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="Nouveau message depuis le Portfolio !">
+
+                <button type="submit">Envoyer le message</button>
             </form>
         </div>
     </section>
@@ -626,7 +603,9 @@
         <p>2026 - Bruno DO ROSARIO INACIO | Portfolio BTS SIO SISR</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        console.log("Portfolio SISR chargé avec succès !");
+    </script>
 </body>
 
 </html>
