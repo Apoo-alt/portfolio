@@ -130,7 +130,7 @@
             width: 30%;
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         .hero-section {
             height: 100vh;
             display: flex;
@@ -174,7 +174,7 @@
             color: var(--accent-color);
         }
 
-        /* --- DESIGN DES CARTES (IMAGE 03369e & 03327c) --- */
+        /* --- DESIGN DES CARTES --- */
         .content-container {
             max-width: 900px;
             margin: 0 auto;
@@ -257,6 +257,129 @@
             gap: 10px;
         }
 
+        /* --- VEILLE TECH --- */
+        .veille-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .veille-image-container {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #333;
+        }
+
+        .veille-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .veille-image-container:hover img {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .source-tag {
+            display: inline-block;
+            background: rgba(0, 123, 255, 0.1);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            border: 1px solid rgba(0, 123, 255, 0.3);
+        }
+
+        /* Flux RSS style */
+        .rss-feed-box {
+            background: #161616;
+            border-radius: var(--radius-card);
+            padding: 25px;
+            border: 1px solid #333;
+            margin-top: 40px;
+        }
+
+        .rss-list {
+            margin-top: 20px;
+        }
+
+        .rss-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #222;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            transition: 0.2s;
+        }
+
+        .rss-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+            padding-left: 5px;
+        }
+
+        .rss-item:last-child {
+            border-bottom: none;
+        }
+
+        .rss-icon {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .rss-content h4 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            color: #fff;
+        }
+
+        .rss-content p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .rss-date {
+            font-size: 0.7rem;
+            color: var(--accent-color);
+            margin-top: 4px;
+            display: block;
+        }
+
+        .loader {
+            border: 3px solid #333;
+            border-top: 3px solid var(--accent-color);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
         /* --- BOUTONS --- */
         .btn-primary {
             display: inline-block;
@@ -303,11 +426,6 @@
             margin-bottom: 15px;
         }
 
-        .skill-box ul {
-            list-style: none;
-            color: var(--text-muted);
-        }
-
         /* --- CONTACT --- */
         .contact-wrapper {
             display: grid;
@@ -325,6 +443,12 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
         .contact-form input,
@@ -428,7 +552,7 @@
 
 <body>
 
-    <!-- BARRE DE NAVIGATION -->
+    <!-- NAVIGATION -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
@@ -602,28 +726,89 @@
                 </div>
             </div>
 
-            <!-- BOUTON GRILLE DE COMPÉTENCES -->
             <div style="text-align: center; margin-top: 20px;">
                 <a href="grille_competences.pdf" class="btn-primary" target="_blank">MA GRILLE DE COMPÉTENCES</a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION VEILLE -->
+    <!-- SECTION VEILLE TECHNOLOGIQUE (DYNAMIQUE COMME DEMANDÉ) -->
     <section id="veille" class="section">
-        <h2 class="section-title">Veille Technologique</h2>
+        <h2 class="section-title">Veille <span>Technologique</span></h2>
         <div class="content-container">
-            <div class="info-card">
-                <div class="card-header">
-                    <h3>IA et Cyberattaques</h3>
-                    <span class="date">En cours</span>
+            <div class="info-card" style="border-left: none; padding: 0; background: transparent;">
+                <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; color: var(--text-muted);">
+                    Sujet de veille : <strong>L'impact de l'Intelligence Artificielle sur les Cyberattaques</strong>
+                </p>
+
+                <div class="veille-grid">
+                    <!-- Thème 1 -->
+                    <div class="info-card">
+                        <div class="veille-image-container">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=400"
+                                alt="Cyberattaques IA">
+                        </div>
+                        <span class="source-tag">Menace 01</span>
+                        <h3>Phishing 2.0 (LLM)</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Utilisation de modèles comme ChatGPT
+                            pour générer des mails d'hameçonnage indétectables.</p>
+                        <a href="https://www.cybermalveillance.gouv.fr" target="_blank" class="pdf-link-trigger"
+                            style="font-size: 0.85rem;">Source : Cybermalveillance →</a>
+                    </div>
+
+                    <!-- Thème 2 -->
+                    <div class="info-card">
+                        <div class="veille-image-container">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=400"
+                                alt="Deepfakes">
+                        </div>
+                        <span class="source-tag">Menace 02</span>
+                        <h3>Deepfakes & Ingénierie</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Usurpation d'identité vocale et vidéo
+                            pour tromper les employés (fraude au président).</p>
+                        <a href="https://www.anssi.gouv.fr" target="_blank" class="pdf-link-trigger"
+                            style="font-size: 0.85rem;">Source : ANSSI →</a>
+                    </div>
+
+                    <!-- Thème 3 -->
+                    <div class="info-card">
+                        <div class="veille-image-container">
+                            <img src="https://images.unsplash.com/photo-1633265485768-30663e399c3f?auto=format&fit=crop&q=80&w=400"
+                                alt="Malware IA">
+                        </div>
+                        <span class="source-tag">Menace 03</span>
+                        <h3>Malwares Polymorphes</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Codes capables de se réécrire grâce à
+                            l'IA pour échapper aux antivirus (EDR).</p>
+                        <a href="https://thehackernews.com" target="_blank" class="pdf-link-trigger"
+                            style="font-size: 0.85rem;">Source : HackerNews →</a>
+                    </div>
                 </div>
-                <span class="location">Sujet de Veille</span>
-                <p>Analyse de la transformation du paysage des menaces informatiques par l'IA générative.</p>
-                <ul class="mission-list">
-                    <li>Génération de code malveillant polymorphe via l'IA</li>
-                    <li>Phishing automatisé et personnalisé via LLM</li>
-                </ul>
+
+                <!-- FLUX D'ACTUALITÉS AUTOMATIQUE -->
+                <div class="rss-feed-box">
+                    <h3 style="margin-bottom: 5px; font-size: 1.2rem;">
+                        <i class="fas fa-rss" style="color:#ee802f;"></i> Flux Actualités (Google News)
+                    </h3>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 15px;">Mise à jour
+                        automatique toutes les 15 minutes</p>
+
+                    <div id="rss-container" class="rss-list">
+                        <div class="rss-item">
+                            <div class="loader"></div>
+                            <div class="rss-content">
+                                <h4>Chargement des actualités en cours...</h4>
+                                <p>Récupération des derniers articles via Google News API.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px; text-align: center;">
+                        <a href="https://news.google.com/search?q=cyberattaques+IA+sécurité" target="_blank"
+                            class="btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">Voir tout sur Google
+                            News</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -649,30 +834,35 @@
         </div>
     </section>
 
-    <!-- SECTION CONTACT -->
+    <!-- SECTION CONTACT (FORMULAIRE FORMSPREE) -->
     <section id="contact" class="section">
         <h2 class="section-title">Contact</h2>
         <div class="contact-wrapper">
             <div class="contact-text">
                 <h3>Une question ?</h3>
-                <p>N'hésitez pas à m'envoyer un message via ce formulaire.</p>
+                <p>N'hésitez pas à m'envoyer un message via ce formulaire sécurisé.</p>
             </div>
+
             <form action="https://formspree.io/f/mdawzdnj" method="POST" class="contact-form">
                 <div class="form-group">
                     <label for="full-name">Nom complet</label>
                     <input type="text" name="name" id="full-name" placeholder="Prénom et Nom" required>
                 </div>
+
                 <div class="form-group">
                     <label for="email-address">Adresse e-mail</label>
                     <input type="email" name="_replyto" id="email-address" placeholder="votre@email.com" required>
                 </div>
+
                 <div class="form-group">
                     <label for="message">Votre message</label>
                     <textarea rows="5" name="message" id="message" placeholder="Bonjour Bruno, je vous contacte pour..."
                         required></textarea>
                 </div>
+
                 <input type="hidden" name="_subject" value="Nouveau message depuis le Portfolio !">
-                <button type="submit" class="btn-primary">Envoyer le message</button>
+
+                <button type="submit">Envoyer le message</button>
             </form>
         </div>
     </section>
@@ -690,7 +880,42 @@
     </footer>
 
     <script>
-        // GESTION DES RAPPORTS DE STAGE
+        // --- LOGIQUE RSS DYNAMIQUE ---
+        const RSS_URL = "https://news.google.com/rss/search?q=cyberattaques+IA+sécurité+informatique&hl=fr&gl=FR&ceid=FR:fr";
+        const API_CONVERTER = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_URL);
+
+        async function fetchCyberNews() {
+            const container = document.getElementById('rss-container');
+            try {
+                const response = await fetch(API_CONVERTER);
+                const data = await response.json();
+
+                if (data.status === 'ok') {
+                    container.innerHTML = '';
+                    data.items.slice(0, 5).forEach(item => {
+                        const date = new Date(item.pubDate).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+                        const articleHtml = `
+                            <a href="${item.link}" target="_blank" class="rss-item">
+                                <div class="rss-icon"><i class="fas fa-newspaper"></i></div>
+                                <div class="rss-content">
+                                    <h4>${item.title}</h4>
+                                    <p>${item.description.substring(0, 120).replace(/<[^>]*>/g, '')}...</p>
+                                    <span class="rss-date">Publié le ${date}</span>
+                                </div>
+                            </a>
+                        `;
+                        container.innerHTML += articleHtml;
+                    });
+                }
+            } catch (err) {
+                container.innerHTML = '<p style="color:red; font-size:0.9rem;">Impossible de charger les actualités pour le moment.</p>';
+            }
+        }
+
+        fetchCyberNews();
+        setInterval(fetchCyberNews, 900000); // Mise à jour automatique toutes les 15 mins
+
+        // --- GESTION DES RAPPORTS DE STAGE ---
         const modal = document.getElementById("pdfModal");
         const pdfViewer = document.getElementById("pdfViewer");
         const closeModal = document.querySelector(".close-modal");
@@ -720,7 +945,7 @@
             }
         }
 
-        console.log("Portfolio SISR restauré avec succès !");
+        console.log("Portfolio SISR restauré avec Veille dynamique !");
     </script>
 </body>
 
