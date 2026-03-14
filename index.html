@@ -174,7 +174,7 @@
             color: var(--accent-color);
         }
 
-        /* --- DESIGN DES CARTES --- */
+        /* --- CARTES --- */
         .content-container {
             max-width: 900px;
             margin: 0 auto;
@@ -479,48 +479,6 @@
             text-transform: uppercase;
         }
 
-        /* --- MODALE PDF --- */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(8px);
-        }
-
-        .modal-content {
-            position: relative;
-            background-color: #1a1a1a;
-            margin: 2% auto;
-            width: 85%;
-            height: 90%;
-            border-radius: 15px;
-            border: 1px solid var(--accent-color);
-            overflow: hidden;
-            box-shadow: 0 0 30px var(--accent-glow);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            color: #fff;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 2001;
-        }
-
-        .modal-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
         footer {
             padding: 50px;
             text-align: center;
@@ -537,14 +495,12 @@
                 display: none;
             }
 
-            .modal-content {
-                width: 95%;
-                height: 80%;
-                margin: 10% auto;
-            }
-
             .hero-content h1 {
                 font-size: 3rem;
+            }
+
+            .section {
+                padding: 80px 5%;
             }
         }
     </style>
@@ -576,11 +532,11 @@
             <h1>BRUNO <span>DO ROSARIO INACIO</span></h1>
             <h3>Étudiant en <strong>BTS SIO</strong> option <strong>SISR</strong></h3>
             <div class="hero-social-links">
-                <a href="https://github.com/Apoo-alt" target="_blank" class="social-icon"><i
+                <a href="https://github.com/Apoo-alt" target="_blank" class="social-icon" title="GitHub"><i
                         class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/brunodorosario" target="_blank" class="social-icon"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="https://tryhackme.com/p/Apooo" target="_blank" class="social-icon"><i
+                <a href="https://www.linkedin.com/in/brunodorosario" target="_blank" class="social-icon"
+                    title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://tryhackme.com/p/Apooo" target="_blank" class="social-icon" title="TryHackMe"><i
                         class="fas fa-shield-alt"></i></a>
             </div>
         </div>
@@ -694,8 +650,8 @@
                 </div>
             </div>
 
-            <!-- STAGE 2 : CYBERV -->
-            <div class="info-card" data-pdf="rapport_cyberv.pdf">
+            <!-- STAGE 2 : CYBERV (LIEN MIS À JOUR) -->
+            <div class="info-card" data-pdf="Rapport_de_stage_CyberV.pdf">
                 <div class="card-header">
                     <h3>Technicien Système et Réseaux</h3>
                     <span class="date">Juin 2025</span>
@@ -727,12 +683,12 @@
             </div>
 
             <div style="text-align: center; margin-top: 20px;">
-                <a href="grille_competences.pdf" class="btn-primary" target="_blank">MA GRILLE DE COMPÉTENCES</a>
+                <a href="#" class="btn-primary" onclick="openGrille(); return false;">MA GRILLE DE COMPÉTENCES</a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION VEILLE TECHNOLOGIQUE (DYNAMIQUE COMME DEMANDÉ) -->
+    <!-- SECTION VEILLE TECHNOLOGIQUE -->
     <section id="veille" class="section">
         <h2 class="section-title">Veille <span>Technologique</span></h2>
         <div class="content-container">
@@ -785,7 +741,7 @@
                     </div>
                 </div>
 
-                <!-- FLUX D'ACTUALITÉS AUTOMATIQUE -->
+                <!-- FLUX D'ACTUALITÉS DYNAMIQUE -->
                 <div class="rss-feed-box">
                     <h3 style="margin-bottom: 5px; font-size: 1.2rem;">
                         <i class="fas fa-rss" style="color:#ee802f;"></i> Flux Actualités (Google News)
@@ -867,14 +823,6 @@
         </div>
     </section>
 
-    <!-- STRUCTURE MODALE PDF -->
-    <div id="pdfModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <iframe id="pdfViewer" class="modal-iframe" src=""></iframe>
-        </div>
-    </div>
-
     <footer>
         <p>2026 - Bruno DO ROSARIO INACIO | Portfolio BTS SIO SISR</p>
     </footer>
@@ -915,37 +863,23 @@
         fetchCyberNews();
         setInterval(fetchCyberNews, 900000); // Mise à jour automatique toutes les 15 mins
 
-        // --- GESTION DES RAPPORTS DE STAGE ---
-        const modal = document.getElementById("pdfModal");
-        const pdfViewer = document.getElementById("pdfViewer");
-        const closeModal = document.querySelector(".close-modal");
-
+        // --- GESTION DES RAPPORTS DE STAGE ET DOCUMENTS (OUVERTURE DANS UN NOUVEL ONGLET) ---
         document.querySelectorAll('#stages .info-card').forEach(card => {
             card.addEventListener('click', function () {
                 const pdfPath = this.getAttribute('data-pdf');
                 if (pdfPath) {
-                    pdfViewer.src = pdfPath;
-                    modal.style.display = "block";
-                    document.body.style.overflow = "hidden";
+                    // Ouverture dans une autre page (nouvel onglet)
+                    window.open(pdfPath, '_blank');
                 }
             });
         });
 
-        closeModal.onclick = function () {
-            modal.style.display = "none";
-            pdfViewer.src = "";
-            document.body.style.overflow = "auto";
+        function openGrille() {
+            // Ouverture dans une autre page (nouvel onglet)
+            window.open("grille_competences.pdf", '_blank');
         }
 
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-                pdfViewer.src = "";
-                document.body.style.overflow = "auto";
-            }
-        }
-
-        console.log("Portfolio SISR restauré avec Veille dynamique !");
+        console.log("Portfolio SISR prêt avec liens vers nouvelles pages !");
     </script>
 </body>
 
