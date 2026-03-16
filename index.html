@@ -650,7 +650,7 @@
                 </div>
             </div>
 
-            <!-- STAGE 2 : CYBERV (LIEN MIS À JOUR) -->
+            <!-- STAGE 2 : CYBERV -->
             <div class="info-card" data-pdf="Rapport_de_stage_CyberV.pdf">
                 <div class="card-header">
                     <h3>Technicien Système et Réseaux</h3>
@@ -771,18 +771,28 @@
 
     <!-- SECTION PROJETS -->
     <section id="projects" class="section bg-dark-2">
-        <h2 class="section-title">Projets Réalisés</h2>
+        <h2 class="section-title">Projets <span>Réalisés</span></h2>
         <div class="skills-grid">
+            <!-- PROJET GSB ORGANISATION -->
             <div class="skill-box">
-                <h3>Installation GLPI</h3>
-                <p>Gestion de parc informatique sous Debian 12.</p>
-                <a href="#"
+                <h3>GSB Organisation</h3>
+                <p>Mise en place et documentation de l'infrastructure réseau et services de l'organisation GSB.</p>
+                <a href="Documentation_GSB.pdf" target="_blank"
                     style="color: var(--accent-color); text-decoration: none; display: block; margin-top: 15px; font-weight: 700;">Dossier
                     Technique →</a>
             </div>
+            <!-- PROJET GLPI -->
+            <div class="skill-box">
+                <h3>Installation GLPI</h3>
+                <p>Gestion de parc informatique sous Debian 12 avec gestion des tickets et inventaire.</p>
+                <a href="Documentation_GLPI.pdf" target="_blank"
+                    style="color: var(--accent-color); text-decoration: none; display: block; margin-top: 15px; font-weight: 700;">Dossier
+                    Technique →</a>
+            </div>
+            <!-- PROJET SUPERVISION -->
             <div class="skill-box">
                 <h3>Supervision SIEM</h3>
-                <p>Wazuh et PfSense sous IPsec.</p>
+                <p>Interconnexion Wazuh et PfSense sous IPsec pour la surveillance et l'analyse de sécurité.</p>
                 <a href="#"
                     style="color: var(--accent-color); text-decoration: none; display: block; margin-top: 15px; font-weight: 700;">Dossier
                     Technique →</a>
@@ -863,23 +873,21 @@
         fetchCyberNews();
         setInterval(fetchCyberNews, 900000); // Mise à jour automatique toutes les 15 mins
 
-        // --- GESTION DES RAPPORTS DE STAGE ET DOCUMENTS (OUVERTURE DANS UN NOUVEL ONGLET) ---
+        // --- GESTION DES RAPPORTS DE STAGE ET DOCUMENTS ---
         document.querySelectorAll('#stages .info-card').forEach(card => {
             card.addEventListener('click', function () {
                 const pdfPath = this.getAttribute('data-pdf');
                 if (pdfPath) {
-                    // Ouverture dans une autre page (nouvel onglet)
                     window.open(pdfPath, '_blank');
                 }
             });
         });
 
         function openGrille() {
-            // Ouverture dans une autre page (nouvel onglet)
             window.open("grille_competences.pdf", '_blank');
         }
 
-        console.log("Portfolio SISR prêt avec liens vers nouvelles pages !");
+        console.log("Portfolio SISR mis à jour avec les projets GSB et GLPI !");
     </script>
 </body>
 
