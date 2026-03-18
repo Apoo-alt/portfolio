@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Bruno DO ROSARIO INACIO - BTS SIO SISR</title>
-    <!-- Import des icônes FontAwesome et de la police Inter -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Ajout du Favicon (icône d'onglet) -->
+
+    <!-- Favicon (icône d'onglet) - Réseau informatique -->
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%23007bff' d='M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32zM112 240c0-17.7 14.3-32 32-32s32 14.3 32 32-14.3 32-32 32-32-14.3-32-32zm160 0c0-17.7 14.3-32 32-32s32 14.3 32 32-14.3 32-32 32-32-14.3-32-32zm96-32c17.7 0 32 14.3 32 32s-14.3 32-32 32-32-14.3-32-32 14.3-32 32-32z'/></svg>"
         type="image/svg+xml">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
+        /* --- CONFIGURATION DES COULEURS ET VARIABLES --- */
         :root {
             --bg-color: #0b0b0b;
             --second-bg: #151515;
@@ -22,7 +26,7 @@
             --text-muted: #a0a0a0;
 
             --radius-nav: 12px;
-            --radius-card: 20px;
+            --radius-card: 24px;
             --radius-btn: 50px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -55,8 +59,11 @@
             font-size: 2.5rem;
             margin-bottom: 50px;
             text-align: center;
-            color: var(--accent-color);
             font-weight: 800;
+        }
+
+        .section-title span {
+            color: var(--accent-color);
         }
 
         /* --- NAVIGATION STYLE FANCRAFT --- */
@@ -103,8 +110,8 @@
             text-decoration: none;
             color: var(--text-muted);
             font-weight: 600;
-            font-size: 1.05rem;
-            padding: 12px 22px;
+            font-size: 0.9rem;
+            padding: 10px 18px;
             border-radius: var(--radius-nav);
             transition: var(--transition);
             position: relative;
@@ -117,23 +124,6 @@
             transform: translateY(-2px);
         }
 
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 6px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background-color: white;
-            transition: 0.3s ease;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .nav-menu a:hover::after {
-            width: 30%;
-        }
-
         /* --- HERO --- */
         .hero-section {
             height: 100vh;
@@ -141,22 +131,27 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            background: radial-gradient(circle at center, rgba(0, 123, 255, 0.05) 0%, transparent 70%);
         }
 
         .hero-content h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2.2rem, 6vw, 4.5rem);
             font-weight: 900;
         }
 
         .hero-content h1 span {
             color: var(--accent-color);
+            text-shadow: 0 0 20px var(--accent-glow);
         }
 
         .hero-content h3 {
             color: var(--text-muted);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-top: 20px;
             font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-social-links {
@@ -167,7 +162,7 @@
         }
 
         .social-icon {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             color: white;
             transition: var(--transition);
             text-decoration: none;
@@ -176,11 +171,12 @@
         .social-icon:hover {
             transform: translateY(-10px);
             color: var(--accent-color);
+            filter: drop-shadow(0 0 10px var(--accent-color));
         }
 
         /* --- CARTES --- */
         .content-container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -191,11 +187,14 @@
             background: #121212;
             padding: 35px;
             border-radius: var(--radius-card);
-            border-left: 5px solid var(--accent-color);
+            border-left: 6px solid var(--accent-color);
             position: relative;
             transition: var(--transition);
             display: flex;
             flex-direction: column;
+            border-top: 1px solid #333;
+            border-right: 1px solid #333;
+            border-bottom: 1px solid #333;
         }
 
         .info-card:hover {
@@ -307,17 +306,12 @@
             border: 1px solid rgba(0, 123, 255, 0.3);
         }
 
-        /* Flux RSS style */
         .rss-feed-box {
             background: #161616;
             border-radius: var(--radius-card);
             padding: 25px;
             border: 1px solid #333;
             margin-top: 40px;
-        }
-
-        .rss-list {
-            margin-top: 20px;
         }
 
         .rss-item {
@@ -334,33 +328,6 @@
         .rss-item:hover {
             background: rgba(255, 255, 255, 0.02);
             padding-left: 5px;
-        }
-
-        .rss-item:last-child {
-            border-bottom: none;
-        }
-
-        .rss-icon {
-            color: var(--accent-color);
-            font-size: 1.5rem;
-        }
-
-        .rss-content h4 {
-            font-size: 0.95rem;
-            margin-bottom: 4px;
-            color: #fff;
-        }
-
-        .rss-content p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .rss-date {
-            font-size: 0.7rem;
-            color: var(--accent-color);
-            margin-top: 4px;
-            display: block;
         }
 
         .loader {
@@ -396,6 +363,7 @@
             transition: var(--transition);
             border: none;
             cursor: pointer;
+            text-transform: uppercase;
         }
 
         .btn-primary:hover {
@@ -404,14 +372,16 @@
             transform: scale(1.05);
         }
 
-        /* --- COMPÉTENCES --- */
-        .skills-grid {
+        /* --- SKILLS & PROJECTS --- */
+        .skills-grid,
+        .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
-        .skill-box {
+        .skill-box,
+        .project-card {
             background: #1a1a1a;
             padding: 30px;
             border-radius: var(--radius-card);
@@ -419,7 +389,8 @@
             transition: var(--transition);
         }
 
-        .skill-box:hover {
+        .skill-box:hover,
+        .project-card:hover {
             border-color: var(--accent-color);
             transform: translateY(-5px);
         }
@@ -428,6 +399,11 @@
             font-size: 2.2rem;
             color: var(--accent-color);
             margin-bottom: 15px;
+        }
+
+        .skill-box ul {
+            list-style: none;
+            color: var(--text-muted);
         }
 
         /* --- CONTACT --- */
@@ -440,7 +416,7 @@
         .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
         .form-group {
@@ -449,19 +425,13 @@
             gap: 8px;
         }
 
-        .form-group label {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
         .contact-form input,
         .contact-form textarea {
             background: #1a1a1a;
             border: 1px solid #333;
             padding: 15px;
             color: white;
-            border-radius: 8px;
+            border-radius: 12px;
             outline: none;
             transition: var(--transition);
         }
@@ -469,18 +439,7 @@
         .contact-form input:focus,
         .contact-form textarea:focus {
             border-color: var(--accent-color);
-        }
-
-        .contact-form button {
-            padding: 15px;
-            background: var(--accent-color);
-            color: white;
-            border-radius: 8px;
-            font-weight: 800;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
+            box-shadow: 0 0 10px var(--accent-glow);
         }
 
         footer {
@@ -491,7 +450,9 @@
         }
 
         @media (max-width: 768px) {
-            .contact-wrapper {
+
+            .contact-wrapper,
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -500,7 +461,7 @@
             }
 
             .hero-content h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
 
             .section {
@@ -534,7 +495,8 @@
     <header id="home" class="hero-section">
         <div class="hero-content">
             <h1>BRUNO <span>DO ROSARIO INACIO</span></h1>
-            <h3>Étudiant en <strong>BTS SIO</strong> option <strong>SISR</strong></h3>
+            <h3>Étudiant en <strong>Brevet de Technicien Supérieur Services Informatiques aux Organisations (BTS
+                    SIO)</strong> option <strong>Solutions d'Infrastructure, Systèmes et Réseaux (SISR)</strong></h3>
             <div class="hero-social-links">
                 <a href="https://github.com/Apoo-alt" target="_blank" class="social-icon" title="GitHub"><i
                         class="fab fa-github"></i></a>
@@ -548,11 +510,11 @@
 
     <!-- SECTION À PROPOS -->
     <section id="about" class="section">
-        <h2 class="section-title">À propos de moi</h2>
+        <h2 class="section-title">À propos <span>de moi</span></h2>
         <div class="content-container" style="text-align: center;">
             <p style="font-size: 1.1rem; margin-bottom: 30px;">Passionné par les infrastructures réseaux et la
-                cybersécurité, je prépare mon BTS SIO option SISR au Lycée Louis Armand. Mon objectif est de devenir
-                Administrateur Systèmes et Réseaux.</p>
+                cybersécurité, je prépare mon <strong>Brevet de Technicien Supérieur (BTS)</strong> au Lycée Louis
+                Armand. Mon objectif est de devenir Administrateur Systèmes et Réseaux.</p>
             <a href="Bruno_DO_ROSARIO_INACIO_FlowCV_Resume_2026-03-09.pdf" class="btn-primary" target="_blank">MON
                 CV</a>
         </div>
@@ -560,7 +522,7 @@
 
     <!-- SECTION COMPÉTENCES -->
     <section id="skills" class="section bg-dark-2">
-        <h2 class="section-title">Compétences Techniques</h2>
+        <h2 class="section-title">Compétences <span>Techniques</span></h2>
         <div class="skills-grid">
             <div class="skill-box">
                 <i class="fas fa-network-wired"></i>
@@ -603,23 +565,24 @@
 
     <!-- SECTION FORMATION -->
     <section id="formation" class="section">
-        <h2 class="section-title">Mes Formations</h2>
+        <h2 class="section-title">Mes <span>Formations</span></h2>
         <div class="content-container">
             <div class="info-card">
                 <div class="card-header">
-                    <h3>BTS SIO Option SISR</h3>
+                    <h3>Brevet de Technicien Supérieur Services Informatiques aux Organisations (BTS SIO) Option SISR
+                    </h3>
                     <span class="date">2024 - 2026</span>
                 </div>
                 <span class="location">LYCÉE LOUIS ARMAND</span>
-                <p>Spécialisation en Solutions d'infrastructure, systèmes et réseaux.</p>
+                <p>Spécialisation en <strong>Solutions d'Infrastructure, Systèmes et Réseaux (SISR)</strong>.</p>
             </div>
             <div class="info-card">
                 <div class="card-header">
-                    <h3>MC Cybersécurité</h3>
+                    <h3>Mention Complémentaire (MC) Cybersécurité</h3>
                     <span class="date">2023 - 2024</span>
                 </div>
                 <span class="location">LYCÉE LOUIS ARMAND</span>
-                <p>Certification de spécialisation en Cybersécurité.</p>
+                <p>Certification de spécialisation intensive en sécurité des systèmes d'information.</p>
             </div>
             <div class="info-card">
                 <div class="card-header">
@@ -627,17 +590,17 @@
                     <span class="date">2020 - 2023</span>
                 </div>
                 <span class="location">LYCÉE COLBERT</span>
-                <p>Spécialités Mathématiques et NSI (Numérique et Sciences Informatiques).</p>
+                <p>Spécialités Mathématiques et <strong>Numérique et Sciences Informatiques (NSI)</strong>.</p>
             </div>
         </div>
     </section>
 
     <!-- SECTION STAGES -->
     <section id="stages" class="section bg-dark-2">
-        <h2 class="section-title">Mes Stages</h2>
+        <h2 class="section-title">Mes <span>Stages</span></h2>
         <div class="content-container">
             <!-- STAGE 1 : ESPACE19 -->
-            <div class="info-card" data-pdf="rapport_espace19.pdf">
+            <div class="info-card" data-pdf="Rapport_de_stage_Espace19.pdf">
                 <div class="card-header">
                     <h3>Technicien Informatique</h3>
                     <span class="date">Décembre 2025</span>
@@ -663,7 +626,7 @@
                 <span class="location">CYBERV</span>
                 <ul class="mission-list">
                     <li>Script bash pour le hardening d'un serveur Linux</li>
-                    <li>Mise en place AD (domaine local, GPO, utilisateurs)</li>
+                    <li>Mise en place Active Directory (AD) (domaine local, GPO, utilisateurs)</li>
                 </ul>
                 <div class="pdf-link-trigger">
                     <i class="fas fa-file-pdf"></i> Cliquez pour voir les missions détaillées
@@ -687,7 +650,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 20px;">
-                <a href="#" class="btn-primary" onclick="openGrille(); return false;">MA GRILLE DE COMPÉTENCES</a>
+                <button class="btn-primary" onclick="openGrille()">MA GRILLE DE COMPÉTENCES</button>
             </div>
         </div>
     </section>
@@ -698,11 +661,11 @@
         <div class="content-container">
             <div class="info-card" style="border-left: none; padding: 0; background: transparent;">
                 <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; color: var(--text-muted);">
-                    Sujet de veille : <strong>L'impact de l'Intelligence Artificielle sur les Cyberattaques</strong>
+                    Sujet de veille : <strong>L'impact de l'Intelligence Artificielle (IA) sur les
+                        Cyberattaques</strong>
                 </p>
 
                 <div class="veille-grid">
-                    <!-- Thème 1 -->
                     <div class="info-card">
                         <div class="veille-image-container">
                             <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=400"
@@ -710,13 +673,12 @@
                         </div>
                         <span class="source-tag">Menace 01</span>
                         <h3>Phishing 2.0 (LLM)</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Utilisation de modèles comme ChatGPT
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Utilisation de modèles de langage (LLM)
                             pour générer des mails d'hameçonnage indétectables.</p>
                         <a href="https://www.cybermalveillance.gouv.fr" target="_blank" class="pdf-link-trigger"
                             style="font-size: 0.85rem;">Source : Cybermalveillance →</a>
                     </div>
 
-                    <!-- Thème 2 -->
                     <div class="info-card">
                         <div class="veille-image-container">
                             <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=400"
@@ -730,7 +692,6 @@
                             style="font-size: 0.85rem;">Source : ANSSI →</a>
                     </div>
 
-                    <!-- Thème 3 -->
                     <div class="info-card">
                         <div class="veille-image-container">
                             <img src="https://images.unsplash.com/photo-1633265485768-30663e399c3f?auto=format&fit=crop&q=80&w=400"
@@ -745,28 +706,15 @@
                     </div>
                 </div>
 
-                <!-- FLUX D'ACTUALITÉS DYNAMIQUE -->
                 <div class="rss-feed-box">
-                    <h3 style="margin-bottom: 5px; font-size: 1.2rem;">
-                        <i class="fas fa-rss" style="color:#ee802f;"></i> Flux Actualités (Google News)
-                    </h3>
+                    <h3 style="margin-bottom: 5px; font-size: 1.2rem;"><i class="fas fa-rss" style="color:#ee802f;"></i>
+                        Flux Actualités (Google News)</h3>
                     <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 15px;">Mise à jour
-                        automatique toutes les 15 minutes</p>
-
-                    <div id="rss-container" class="rss-list">
+                        automatique (IA & Cyberattaques)</p>
+                    <div id="rss-container">
                         <div class="rss-item">
-                            <div class="loader"></div>
-                            <div class="rss-content">
-                                <h4>Chargement des actualités en cours...</h4>
-                                <p>Récupération des derniers articles via Google News API.</p>
-                            </div>
+                            <div class="loader"></div>Chargement du flux...
                         </div>
-                    </div>
-
-                    <div style="margin-top: 25px; text-align: center;">
-                        <a href="https://news.google.com/search?q=cyberattaques+IA+sécurité" target="_blank"
-                            class="btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">Voir tout sur Google
-                            News</a>
                     </div>
                 </div>
             </div>
@@ -776,69 +724,57 @@
     <!-- SECTION PROJETS -->
     <section id="projects" class="section bg-dark-2">
         <h2 class="section-title">Projets <span>Réalisés</span></h2>
-        <div class="skills-grid">
-            <!-- PROJET GSB ORGANISATION -->
-            <div class="skill-box">
+        <div class="projects-grid">
+            <div class="project-card">
                 <h3>GSB Organisation</h3>
-                <p>Mise en place et documentation de l'infrastructure réseau et services de l'organisation GSB.</p>
-                <a href="Documentation_GSB.pdf" target="_blank"
-                    style="color: var(--accent-color); text-decoration: none; display: block; margin-top: 15px; font-weight: 700;">Dossier
-                    Technique →</a>
+                <p>Mise en place et documentation de l'infrastructure réseau et services de l'organisation Galaxy Swiss
+                    Bourdin (GSB).</p>
+                <a href="Documentation_GSB.pdf" target="_blank" class="pdf-link-trigger"
+                    style="font-size: 0.9rem;">Dossier Technique →</a>
             </div>
-            <!-- PROJET GLPI -->
-            <div class="skill-box">
+            <div class="project-card">
                 <h3>Installation GLPI</h3>
-                <p>Gestion de parc informatique sous Debian 12 avec gestion des tickets et inventaire.</p>
-                <a href="Documentation_GLPI.pdf" target="_blank"
-                    style="color: var(--accent-color); text-decoration: none; display: block; margin-top: 15px; font-weight: 700;">Dossier
-                    Technique →</a>
+                <p>Gestion de parc informatique sous Debian 12 avec Gestion Libre de Parc Informatique (GLPI).</p>
+                <a href="Documentation_GLPI.pdf" target="_blank" class="pdf-link-trigger"
+                    style="font-size: 0.9rem;">Dossier Technique →</a>
             </div>
-            <!-- PROJET SUPERVISION -->
-            <div class="skill-box">
+            <div class="project-card">
                 <h3>Supervision SIEM</h3>
-                <p>Interconnexion Wazuh et PfSense sous IPsec pour la surveillance et l'analyse de sécurité.</p>
-                <a href="#"
-                    style="color: var(--accent-color); text-decoration: none; display: block; margin-top: 15px; font-weight: 700;">Dossier
-                    Technique →</a>
+                <p>Interconnexion Wazuh et PfSense sous IPsec pour la surveillance (SIEM) et l'analyse de sécurité.</p>
+                <a href="#" class="pdf-link-trigger" style="font-size: 0.9rem;">Dossier Technique →</a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION CONTACT (FORMULAIRE FORMSPREE) -->
+    <!-- SECTION CONTACT -->
     <section id="contact" class="section">
-        <h2 class="section-title">Contact</h2>
+        <h2 class="section-title">Contactez-<span>moi</span></h2>
         <div class="contact-wrapper">
             <div class="contact-text">
                 <h3>Une question ?</h3>
-                <p>N'hésitez pas à m'envoyer un message via ce formulaire sécurisé.</p>
+                <p>Utilisez ce formulaire pour m'envoyer un message direct. Je vous répondrai dès que possible.</p>
             </div>
-
-            <form action="https://formspree.io/f/mdawzdnj" method="POST" class="contact-form">
+            <form action="https://formspree.io/f/mdawzdnj" method="POST" class="contact-form" id="contact-form">
                 <div class="form-group">
-                    <label for="full-name">Nom complet</label>
-                    <input type="text" name="name" id="full-name" placeholder="Prénom et Nom" required>
+                    <label>Nom complet</label>
+                    <input type="text" name="name" placeholder="Votre nom" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="email-address">Adresse e-mail</label>
-                    <input type="email" name="_replyto" id="email-address" placeholder="votre@email.com" required>
+                    <label>E-mail</label>
+                    <input type="email" name="_replyto" placeholder="votre@email.com" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="message">Votre message</label>
-                    <textarea rows="5" name="message" id="message" placeholder="Bonjour Bruno, je vous contacte pour..."
-                        required></textarea>
+                    <label>Message</label>
+                    <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
                 </div>
-
-                <input type="hidden" name="_subject" value="Nouveau message depuis le Portfolio !">
-
-                <button type="submit">Envoyer le message</button>
+                <input type="hidden" name="_subject" value="Nouveau message Portfolio - Bruno">
+                <button type="submit" class="btn-primary">Envoyer le message</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>2026 - Bruno DO ROSARIO INACIO | Portfolio BTS SIO SISR</p>
+        <p>2026 - Bruno DO ROSARIO INACIO | Portfolio <strong>BTS SIO SISR</strong></p>
     </footer>
 
     <script>
@@ -851,48 +787,73 @@
             try {
                 const response = await fetch(API_CONVERTER);
                 const data = await response.json();
-
                 if (data.status === 'ok') {
                     container.innerHTML = '';
                     data.items.slice(0, 5).forEach(item => {
                         const date = new Date(item.pubDate).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
-                        const articleHtml = `
+                        container.innerHTML += `
                             <a href="${item.link}" target="_blank" class="rss-item">
-                                <div class="rss-icon"><i class="fas fa-newspaper"></i></div>
-                                <div class="rss-content">
-                                    <h4>${item.title}</h4>
-                                    <p>${item.description.substring(0, 120).replace(/<[^>]*>/g, '')}...</p>
-                                    <span class="rss-date">Publié le ${date}</span>
+                                <div>
+                                    <h4 style="color:#fff; font-size:0.95rem; margin-bottom:4px;">${item.title}</h4>
+                                    <span style="font-size:0.75rem; color:var(--accent-color);">Publié le ${date}</span>
                                 </div>
-                            </a>
-                        `;
-                        container.innerHTML += articleHtml;
+                            </a>`;
                     });
                 }
             } catch (err) {
-                container.innerHTML = '<p style="color:red; font-size:0.9rem;">Impossible de charger les actualités pour le moment.</p>';
+                container.innerHTML = '<p style="color:red; font-size:0.8rem;">Impossible de charger les news.</p>';
             }
         }
-
         fetchCyberNews();
-        setInterval(fetchCyberNews, 900000); // Mise à jour automatique toutes les 15 mins
+        setInterval(fetchCyberNews, 900000); // 15 mins
 
-        // --- GESTION DES RAPPORTS DE STAGE ET DOCUMENTS ---
+        // --- GESTION DES CLICS SUR CARTES STAGES ---
         document.querySelectorAll('#stages .info-card').forEach(card => {
             card.addEventListener('click', function () {
                 const pdfPath = this.getAttribute('data-pdf');
-                if (pdfPath) {
-                    window.open(pdfPath, '_blank');
-                }
+                if (pdfPath) window.open(pdfPath, '_blank');
             });
         });
 
+        // --- GRILLE DE COMPÉTENCES ---
         function openGrille() {
-            // Mise à jour du nom du fichier selon votre demande
             window.open("Grille_de_competenes_Bruno_DO_ROSARIO_INACIO.pdf", '_blank');
         }
 
-        console.log("Portfolio SISR mis à jour avec le lien vers la nouvelle grille !");
+        // --- GESTION FORMULAIRE ---
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const submitBtn = this.querySelector('button');
+                const formData = new FormData(this);
+
+                // Anti-spam local (1 min)
+                const lastSent = localStorage.getItem('last_sent');
+                if (lastSent && (Date.now() - lastSent < 60000)) {
+                    alert("Veuillez attendre une minute entre deux messages.");
+                    return;
+                }
+
+                submitBtn.innerText = "Envoi...";
+                try {
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        alert("Merci ! Votre message a été envoyé.");
+                        this.reset();
+                        localStorage.setItem('last_sent', Date.now());
+                    }
+                } catch (error) {
+                    alert("Erreur lors de l'envoi.");
+                } finally {
+                    submitBtn.innerText = "Envoyer le message";
+                }
+            });
+        }
     </script>
 </body>
 
